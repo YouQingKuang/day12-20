@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<link rel="stylesheet"
+		th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+		href="/webjars/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		th:href="@{/bootstrap3/css/bootstrap-treeview.css}"
+		href="bootstrap3/css/bootstrap-treeview.css" />
+	
+	<script type="text/javascript"  th:src="@{webjars/jquery/1.11.1/jquery.min.js}"></script>
+	<script type="text/javascript"  th:src="@{/webjars/bootstrap/3.2.0/js/bootstrap.min.js}"></script>
+	<script type="text/javascript"  th:src="@{/bootstrap3/js/bootstrap-treeview.js}"></script>
+</head>
+<body>
+<a th:href="@{/getTree}">toTree</a>
+<div id="tree"></div>
+
+</body>
+<script type="text/javascript">
+/*<![CDATA[*/
+$(function () {
+        $.ajax({
+			   type: "POST",
+			   url: "/getTree",
+			   dataType:'json',
+			   success: function(msg){
+				   $('#tree').treeview({data:msg,
+					   					color:"white",
+					   					onhoverColor:"#cacccd",
+					   					backColor:"#eeeeee",
+					   					borderColor:"#66ffcc"});
+			   }
+			});
+})
+ 
+ 
+/*]]>*/</script>
+</html>

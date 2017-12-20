@@ -1,0 +1,21 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		web de list
+		<br/>
+		Logged user: <span sec:authentication="name"></span>
+		Roles: <span sec:authentication="principal.authorities"></span>
+		<br/>
+		<a th:href="@{toShow}">get users list</a>
+		<br/>
+		<a th:href="@{/toTree}">toTree</a>
+	</center>
+</body>
+</html>
